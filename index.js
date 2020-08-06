@@ -149,9 +149,13 @@ function scoreboard(callback1, callback2, inningNums) {
     homeScores += callback1(callback2);
     awayScores += callback1(callback2);
 
-    currentInning = i + 1;
+    currentInning = currentInning + 1;
 
-    allScores += `Inning ${i + 1}: awayTeam (${awayScores}) - homeTeam (${homeScores})\n`;
+    allScores += `Inning ${currentInning}: awayTeam (${awayScores}) - homeTeam (${homeScores})\n`;
+
+    if (homeScores === awayScores && currentInning >= inningNums) {
+      i -= 1;
+    }
   }
 
   allScores += `Final Score: awayTeam (${awayScores}) - homeTeam (${homeScores})`;
