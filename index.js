@@ -132,8 +132,31 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function getInningScore(callback, inningNums) {}
+function getInningScore(callback) {
+  return callback(2);
+}
 
 function scoreboard(callback1, callback2, inningNums) {
-  /* CODE HERE */
+  // Declare the variable to return
+  let allScores = [];
+
+  // Set the scores to 0 first
+  let homeScores = 0;
+  let awayScores = 0;
+  let currentInning = 0;
+
+  for (let i = 0; i < inningNums; i++) {
+    homeScores += callback1(callback2);
+    awayScores += callback1(callback2);
+
+    currentInning = i + 1;
+
+    allScores += `Inning ${i + 1}: awayTeam (${awayScores}) - homeTeam (${homeScores})\n`;
+  }
+
+  allScores += `Final Score: awayTeam (${awayScores}) - homeTeam (${homeScores})`;
+
+  return allScores;
 }
+
+console.log(scoreboard(getInningScore, inning, 9));
