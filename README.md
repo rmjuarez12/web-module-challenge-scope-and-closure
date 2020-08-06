@@ -35,13 +35,16 @@ There are layers upon layers of nested functions within the game of baseball. Yo
 
 ### Task 2a - MVP code
 
-Find the file `index.js` and complete the tasks.
+- [x] Find the file `index.js` and complete the tasks.
 
 ### Task 2b - Written questions
 
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+**A: A closure is when you have a function that is nested within a function. This inner(or nested) function has access to the variables that are within the main function's scope.**
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,8 +65,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+**A: Closure is being used on the return line, since the return line is an inner(or nested) function.**
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+**A: The first time that the `dansRoll` method was called, it returned a 3, while the second time it was called, it returned a 5. The only thing that was always the same was the name, which was `Dan`, since it was specified in the function's argument. However, the value for `newRoll` changed, since that was handled by the inner function, which is a closure.**
+
 c. What is the lexical scope of `newRoll`?
+
+**A: The lexical scope of `newRoll` would be the variable `name`, since that is a variable that the parent function has access to**
 
 ### Task 2c - Exit Ticket
 
